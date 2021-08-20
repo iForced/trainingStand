@@ -6,12 +6,31 @@ import {UncontrolledAccordion} from "./components/Accordion/UncontrolledAccordio
 import {Accordion} from "./components/Accordion/Accordion";
 import {RatingType, Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
+import {Select} from "./components/Select/Select";
+
+export type SelectItemType = {
+    title: string
+    value: string
+}
 
 
 function App() {
     const [collapsed, setCollapsed] = useState<boolean>(false)
     const [ratingValue, setRatingValue] = useState<RatingType>(0)
     const [on, setOn] = useState(false)
+
+    const selectItems: Array<SelectItemType> = [
+        {title: 'Minsk', value: '1'},
+        {title: 'Moscow', value: '2'},
+        {title: 'Kyiv', value: '3'},
+        {title: 'Baranovichi', value: '4'},
+    ]
+
+    const [value, setValue] = useState<string>('1')
+
+    const onSelect = (value: string) => {
+        setValue(value)
+    }
 
     return (
         <div>
@@ -25,6 +44,7 @@ function App() {
             <Accordion title={"Menu"} collapsed={collapsed} setCollapsed={() => setCollapsed(!collapsed)} />
             <Rating ratingValue={ratingValue} setRatingValue={setRatingValue} />
             <OnOff on={on} setOn={setOn} />
+            <Select items={selectItems} onSelect={onSelect} value={value}/>
         </div>
     );
 }

@@ -1,0 +1,43 @@
+.select {
+    text-align: center;
+    margin: 50px;
+    width: 200px;
+}
+.title {
+    padding: 5px 10px;
+    transition: .2s ease;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.title:hover {
+    cursor: pointer;
+    box-shadow: 0 0 4px 0 black;
+}
+.items {
+    display: block;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 4px 0px black;
+
+}
+.items.hide {
+    display: none;
+}
+.item {
+    padding: 5px;
+    transition: .2s ease;
+    border-radius: 5px;
+}
+.item.disabled {
+    opacity: 0.5;
+}
+.item.disabled:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    background-color: white;
+}
+.item:hover {
+    cursor: pointer;
+    box-shadow: inset 0 0 4px 0 black;
+    background-color: rgba(128, 128, 128, 0.39);
+}
