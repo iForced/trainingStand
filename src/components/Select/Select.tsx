@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useReducer} from 'react';
 import s from './Select.module.css'
 import {SelectItemType} from "../../App";
+import {reducer, TOGGLE_OPENED} from "./SelectReducer";
 
 type SelectPropsType = {
     items: Array<SelectItemType>
@@ -10,10 +11,10 @@ type SelectPropsType = {
 
 export function Select(props: SelectPropsType) {
 
-    const [opened, setOpened] = useState<boolean>(false)
-
+    // const [opened, setOpened] = useState<boolean>(false)
+    const [opened, dispatch] = useReducer(reducer, {isOpened: false})
     const onCLickHandler = () => {
-        setOpened(!opened)
+        dispatch({type: TOGGLE_OPENED})
     }
 
     const selectedItem = props.items.find(item => item.value === props.value)
@@ -39,7 +40,7 @@ export function Select(props: SelectPropsType) {
                 onClick={onCLickHandler}>
                 {selectedItem && selectedItem.title}
             </h3>
-            <div className={ `${s.items} ${!opened && s.hide}` }>
+            <div className={`${s.items} ${!opened.isOpened && s.hide}`}>
                 {itemsList}
             </div>
         </div>
