@@ -1,7 +1,7 @@
 import React, {useReducer} from 'react';
 import s from './Select.module.css'
 import {SelectItemType} from "../../App";
-import {reducer, TOGGLE_OPENED} from "./SelectReducer";
+import {selectReducer, TOGGLE_OPENED} from "./SelectReducer";
 
 type SelectPropsType = {
     items: Array<SelectItemType>
@@ -10,9 +10,7 @@ type SelectPropsType = {
 }
 
 export function Select(props: SelectPropsType) {
-
-    // const [opened, setOpened] = useState<boolean>(false)
-    const [opened, dispatch] = useReducer(reducer, {isOpened: false})
+    const [opened, dispatch] = useReducer(selectReducer, {isOpened: false})
     const onCLickHandler = () => {
         dispatch({type: TOGGLE_OPENED})
     }

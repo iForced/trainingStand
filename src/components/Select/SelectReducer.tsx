@@ -4,7 +4,7 @@ type StateType = {
     isOpened: boolean
 }
 export const TOGGLE_OPENED = 'TOGGLE-OPENED'
-export const reducer = (state: StateType, action: ActionType): StateType => {
+export const selectReducer = (state: StateType, action: ActionType): StateType => {
     switch (action.type) {
         case TOGGLE_OPENED:
             return {...state, isOpened: !state.isOpened}

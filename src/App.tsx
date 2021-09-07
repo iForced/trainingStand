@@ -7,12 +7,12 @@ import {Accordion} from "./components/Accordion/Accordion";
 import {RatingType, Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {Select} from "./components/Select/Select";
+import {ReactMemoDemo} from "./components/ReactMemoDemo/ReactMemoDemo";
 
 export type SelectItemType = {
     title: string
     value: string
 }
-
 
 function App() {
     const [collapsed, setCollapsed] = useState<boolean>(false)
@@ -45,6 +45,8 @@ function App() {
             <Rating ratingValue={ratingValue} setRatingValue={setRatingValue} />
             <OnOff on={on} setOn={setOn} />
             <Select items={selectItems} onSelect={onSelect} value={value}/>
+            <div>==========================================================================================</div>
+            <ReactMemoDemo />
         </div>
     );
 }
