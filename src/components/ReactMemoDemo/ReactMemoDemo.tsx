@@ -1,38 +1,42 @@
 import React, {useReducer, useState} from "react";
-import {memoDemoReducer} from "./memoDemoReducer";
+import {counterReducer} from "./counterReducer";
+import {usersReducer} from "./usersReducer";
 
 export const ReactMemoDemo = () => {
-    const [counter, setCounter] = useState<number>(0)
-    const [users, setUsers] = useState<Array<string>>(['Valera', 'Seryoga', 'Kazbek'])
+    const [counter, dispatchCounter] = useReducer(counterReducer, 0)
+    const [users, dispatchUsers] = useReducer(usersReducer, ['Valera', 'Seryoga', 'Kazbek'])
     return (
         <div>
-            <MemoCounter counter={counter} onClick={setCounter} />
-            <MemoUsers users={users} onClick={setUsers} />
+            <MemoCounter counter={counter} onClick={dispatchCounter} />
+            <MemoUsers users={users} onClick={dispatchUsers} />
         </div>
     )
 }
 
-const Counter = (props: {counter: number, onClick: (newCounter: number) => void}) => {
+const Counter = (props: {counter: number, onClick: (action: {type: 'ADD' | 'SUB'}) => void}) => {
     console.log('counter rendered')
     return (
         <div>
-            <button onClick={() => props.onClick(props.counter + 1)}>+</button>
+            <button onClick={() => props.onClick({type: 'ADD'})}>+</button>
+            <button onClick={() => props.onClick({type: 'SUB'})}>-</button>
             {props.counter}
         </div>
     )
 }
 const MemoCounter = React.memo(Counter)
 
-const Users = (props: {users: Array<string>, onClick: (updatedUsers: Array<string>) => void}) => {
+const Users = (props: {users: Array<string>, onClick: (action: {type: 'ADD_SVETA' | 'ADD_IGOR'}) => void}) => {
     console.log('users rendered')
-    const addUser = () => {
-        const updatedUsers = [...props.users, 'Sveta']
-        props.onClick(updatedUsers)
+    const addUser = (name: string) => {
+        name === 'Sveta'
+            ? props.onClick({type: "ADD_SVETA"})
+            : props.onClick({type: "ADD_IGOR"})
     }
     const usersElements = props.users.map((u, i) => <div key={i}>{u}</div>)
     return (
         <div>
-            <button onClick={addUser}>Add user</button>
+            <button onClick={() => addUser('Sveta')}>Add Sveta</button>
+            <button onClick={() => addUser('Igor')}>Add Igor</button>
             {usersElements}
         </div>
     )
