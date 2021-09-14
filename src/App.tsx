@@ -8,6 +8,7 @@ import {RatingType, Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {Select} from "./components/Select/Select";
 import {ReactMemoDemo} from "./components/ReactMemoDemo/ReactMemoDemo";
+import {CounterUseMemo} from "./components/SelectUseMemo/CounterUseMemo";
 
 export type SelectItemType = {
     title: string
@@ -47,6 +48,8 @@ function App() {
             <Select items={selectItems} onSelect={onSelect} value={value}/>
             <div>==========================================================================================</div>
             <ReactMemoDemo />
+            <div>==========================================================================================</div>
+            <CounterUseMemo />
         </div>
     );
 }

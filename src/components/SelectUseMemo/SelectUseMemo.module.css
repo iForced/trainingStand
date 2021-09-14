@@ -1,0 +1,9 @@
+.select {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
