@@ -1,21 +1,39 @@
 import React, {useMemo, useState} from "react";
 
-export const CounterUseMemo = () => {
-    console.log('container rendered')
 
-    const slow = () => {
-        for (let i = 0; i < 10000000000; i++) {
-        }
-        return setA(a + 1)
-    }
-    const [a, setA] = useState<number>(1)
-    const [b, setB] = useState<number>(1)
+
+export const Users = (props: {users: Array<string>}) => {
+    console.log('Users rendered')
+
     return (
         <div>
-            <div>{a}</div>
-            <div>{b}</div>
-            <button onClick={slow}>a</button>
-            <button onClick={() => setB(b + 1)}>b</button>
+            {props.users.map((u,i) => <div key={i}>{u}</div>)}
+        </div>
+    )
+}
+export const UsersMemo = React.memo(Users)
+
+export const UseMemoExample =() => {
+    console.log('UseMemo example')
+
+    const [counter, setCounter] = useState(0)
+    const [users, setUsers] = useState(['Ilya', 'Valera', 'Kazbek'])
+
+    const filteredUsers = useMemo(() => {
+        const usersWithL = users.filter(u => u.toLowerCase().indexOf('l') > -1)
+        return usersWithL
+    }, [users])
+
+    const addUser = () => {
+        setUsers([...users, 'Oleg'])
+    }
+
+    return (
+        <div>
+            <button onClick={() => setCounter(counter + 1)}>+</button>
+            <button onClick={addUser}>add user</button>
+            {counter}
+            <UsersMemo users={filteredUsers} />
         </div>
     )
 }
