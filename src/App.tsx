@@ -9,6 +9,7 @@ import {OnOff} from "./components/OnOff/OnOff";
 import {Select} from "./components/Select/Select";
 import {ReactMemoDemo} from "./components/ReactMemoDemo/ReactMemoDemo";
 import {UseMemoExample} from "./components/SelectUseMemo/CounterUseMemo";
+import {UseStateExtended} from "./components/useStateExtended/UseStateExtended";
 
 export type SelectItemType = {
     title: string
@@ -50,6 +51,8 @@ function App() {
             <ReactMemoDemo />
             <div>==========================================================================================</div>
             <UseMemoExample />
+            <div>==========================================================================================</div>
+            <UseStateExtended />
         </div>
     );
 }

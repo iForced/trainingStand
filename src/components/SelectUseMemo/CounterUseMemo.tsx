@@ -1,7 +1,5 @@
 import React, {useMemo, useState} from "react";
 
-
-
 export const Users = (props: {users: Array<string>}) => {
     console.log('Users rendered')
 
