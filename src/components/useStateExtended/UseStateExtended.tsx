@@ -9,7 +9,7 @@ const difficultCounting = () => {
 export const UseStateExtended =() => {
     console.log('use state rendered')
 
-    const [counter, setCounter] = useState(difficultCounting)
+    const [counter, setCounter] = useState<number>(difficultCounting)
 
     const increment = (value: number) => value + 1
 

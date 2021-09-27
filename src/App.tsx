@@ -10,6 +10,7 @@ import {Select} from "./components/Select/Select";
 import {ReactMemoDemo} from "./components/ReactMemoDemo/ReactMemoDemo";
 import {UseMemoExample} from "./components/SelectUseMemo/CounterUseMemo";
 import {UseStateExtended} from "./components/useStateExtended/UseStateExtended";
+import {UseEffectDemo} from "./components/UseEffectDemo/UseEffectDemo";
 
 export type SelectItemType = {
     title: string
@@ -53,6 +54,8 @@ function App() {
             <UseMemoExample />
             <div>==========================================================================================</div>
             <UseStateExtended />
+            <div>==========================================================================================</div>
+            <UseEffectDemo />
         </div>
     );
 }
