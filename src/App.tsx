@@ -11,6 +11,7 @@ import {ReactMemoDemo} from "./components/ReactMemoDemo/ReactMemoDemo";
 import {UseMemoExample} from "./components/SelectUseMemo/CounterUseMemo";
 import {UseStateExtended} from "./components/useStateExtended/UseStateExtended";
 import {UseEffectDemo} from "./components/UseEffectDemo/UseEffectDemo";
+import {UseEffectWithInterval} from "./components/UseEffectDemo/UseEffectWithInterval";
 
 export type SelectItemType = {
     title: string
@@ -56,6 +57,8 @@ function App() {
             <UseStateExtended />
             <div>==========================================================================================</div>
             <UseEffectDemo />
+            <div>==========================================================================================</div>
+            <UseEffectWithInterval />
         </div>
     );
 }
