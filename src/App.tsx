@@ -12,6 +12,7 @@ import {UseMemoExample} from "./components/SelectUseMemo/CounterUseMemo";
 import {UseStateExtended} from "./components/useStateExtended/UseStateExtended";
 import {UseEffectDemo} from "./components/UseEffectDemo/UseEffectDemo";
 import {UseEffectWithInterval} from "./components/UseEffectDemo/UseEffectWithInterval";
+import {UseEffectClock} from "./components/UseEffectClock/UseEffectClock";
 
 export type SelectItemType = {
     title: string
@@ -39,26 +40,28 @@ function App() {
     return (
         <div>
             <>Uncontrolled</>
-            <UncontrolledAccordion />
-            <UncontrolledRating />
-            <UncontrolledOnOff onChange={setOn} />
+            <UncontrolledAccordion/>
+            <UncontrolledRating/>
+            <UncontrolledOnOff onChange={setOn}/>
             {on.toString()}
             <div>=========================================================================================</div>
             <>Controlled</>
-            <Accordion title={"Menu"} collapsed={collapsed} setCollapsed={() => setCollapsed(!collapsed)} />
-            <Rating ratingValue={ratingValue} setRatingValue={setRatingValue} />
-            <OnOff on={on} setOn={setOn} />
+            <Accordion title={"Menu"} collapsed={collapsed} setCollapsed={() => setCollapsed(!collapsed)}/>
+            <Rating ratingValue={ratingValue} setRatingValue={setRatingValue}/>
+            <OnOff on={on} setOn={setOn}/>
             <Select items={selectItems} onSelect={onSelect} value={value}/>
             <div>==========================================================================================</div>
-            <ReactMemoDemo />
+            <ReactMemoDemo/>
             <div>==========================================================================================</div>
-            <UseMemoExample />
+            <UseMemoExample/>
             <div>==========================================================================================</div>
-            <UseStateExtended />
+            <UseStateExtended/>
             <div>==========================================================================================</div>
-            <UseEffectDemo />
+            <UseEffectDemo/>
             <div>==========================================================================================</div>
-            <UseEffectWithInterval />
+            <UseEffectWithInterval/>
+            <div>==========================================================================================</div>
+            <UseEffectClock/>
         </div>
     );
 }
